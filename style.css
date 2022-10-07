@@ -1,0 +1,54 @@
+.my-bg-primary{
+    background-color: #1B4472 !important;
+}
+
+.my-text-primary{
+    color: #128CCD;
+}
+.top-jumbo{
+    line-height: .2vh;
+}
+.top-jumbo .profile-img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: solid 10px #128CCD;
+    overflow: hidden;
+}
+
+.top-jumbo .profile-img img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.section-header{
+    color: #128CCD;
+    font-size: x-large;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 15%;
+}
+
+.section-text{
+    color: #515151;
+}
+
+.contact-list{
+    font-size: large;
+}
+.contact-list i{
+    color: #128CCD;
+}
+
+.skills-list ul{
+    columns: 2;
+}
+
+input{
+    border-radius: 20px !important;
+}
+
+button{
+    border-radius: 20px !important;
+    background-color: #1B4472 !important;
+}
