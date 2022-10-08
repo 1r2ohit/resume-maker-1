@@ -81,7 +81,8 @@ async function setState(){
 
 $('button').click(()=>{
     $('#main-resume').printThis({
-      importCSS: true,
+      style:true,
+        importCSS: true,
       copyTagClasses: true,
       beforePrint: ()=>{
         $('#main-resume').css('font-size', '200%'); 
