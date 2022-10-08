@@ -214,7 +214,7 @@ function CreatePDFfromHTML() {
         canvas_image_height
       );
     }
-    pdf.save('Your_PDF_Name.pdf');
+    pdf.save(data['name']+'(Resume Maker by Uday).pdf');
     // $('#main-resume').hide();
   });
 }
