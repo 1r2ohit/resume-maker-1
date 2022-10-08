@@ -55,3 +55,24 @@ button{
 .my-border-primary {
     border-color: #128CCD;
 }
+
+.modal{
+    top: 60%;
+}
+
+.final-btn{
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    height: 100px;
+    width: 100px;
+    border: solid;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+}
+.final-btn i{
+    display: block;
+    margin-top: 35%;
+    font-size: xx-large;
+}

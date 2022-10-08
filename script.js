@@ -56,36 +56,64 @@ $(document).ready(() => {
     setState();
   });
 
-  function setState() {
-    $('#top-most h1').html(starBold(data['name']));
-    $('title').html(data['name'] + ' (Resume Maker by Uday)');
-    $('#top-most p').html(data['attr']);
-
-    $('#mobile span').html(data['phone']);
-    $('#email span').html(data['email']);
-    $('#linkedin span').html(data['linkedin']);
-    $('#house span').html(data['address']);
-
-    $('#profile-section .section-text').html(data['profile']);
-    $('#education-section .section-text').html(starBold(data['education']));
-    $('#experience-section .section-text').html(data['experience']);
-
-    $('.skills-list ul').html('');
-    for (let i = 0; i < data['skills'].length; i++) {
-      $('.skills-list ul').append(`<li>${data['skills'][i]}</li>`);
-    }
-  }
-
   $('#genrate').click(() => {
     CreatePDFfromHTML();
   });
+  
+  var showImg = true;
+  $('#show-img').click(() => {
+    if (showImg) {
+      $('#img-col').hide();
+    } else {
+      $('#img-col').show();
+    }
+    showImg = !showImg;
+  });
+
+  
+  function setTheme(darkColour, lightColour) {
+    $('.my-bg-primary').css('background-color', darkColour);
+    $('.my-text-primary').css('color', lightColour);
+    $('.my-border-primary').css('border-color', lightColour);
+  }
+  var colourThemes = {
+    Orange: ['#d35400', '#e67e22'],
+    Yellow: ['#f39c12', '#f1c40f'],
+    Purple: ['#8e44ad', '#9b59b6'],
+    Blue: ['#2980b9', '#3498db'],
+    Green: ['#16a085', '#1abc9c'],
+    Red: ['#eb3b5a', '#fc5c65'],
+    Grey: ['#4b6584', '#778ca3'],
+  };
+  $('#colors-list a').click((event) => {
+    event.preventDefault();
+    var colour = event.target.innerText;
+    console.log(colourThemes[colour]);
+    console.log();
+    setTheme(colourThemes[colour][0], colourThemes[colour][1]);
+  });
+
+
 });
 
+function setState() {
+  $('#top-most h1').html(starBold(data['name']));
+  $('title').html(data['name'] + ' (Resume Maker by Uday)');
+  $('#top-most p').html(data['attr']);
 
-function setTheme(darkColour, lightColour) {
-  $('.my-bg-primary').css('background-color', darkColour);
-  $('.my-text-primary').css('color', lightColour);
-  $('.my-border-primary').css('border-color', lightColour);
+  $('#mobile span').html(data['phone']);
+  $('#email span').html(data['email']);
+  $('#linkedin span').html(data['linkedin']);
+  $('#house span').html(data['address']);
+
+  $('#profile-section .section-text').html(data['profile']);
+  $('#education-section .section-text').html(starBold(data['education']));
+  $('#experience-section .section-text').html(data['experience']);
+
+  $('.skills-list ul').html('');
+  for (let i = 0; i < data['skills'].length; i++) {
+    $('.skills-list ul').append(`<li>${data['skills'][i]}</li>`);
+  }
 }
 
 function starBold(s) {
@@ -114,37 +142,6 @@ function starBold(s) {
   var ans = li.join('');
   return ans;
 }
-
-
-var colourThemes = {
-  Orange: ['#d35400', '#e67e22'],
-  Yellow: ['#f39c12', '#f1c40f'],
-  Purple: ['#8e44ad', '#9b59b6'],
-  Blue: ['#2980b9', '#3498db'],
-  Green: ['#16a085', '#1abc9c'],
-  Red: ['#eb3b5a', '#fc5c65'],
-  Grey: ['#4b6584', '#778ca3'],
-};
-$('#colors-list a').click((event) => {
-  event.preventDefault();
-  var colour = event.target.innerText;
-  console.log(colourThemes[colour]);
-  console.log();
-  setTheme(colourThemes[colour][0], colourThemes[colour][1]);
-});
-
-
-
-var showImg = true;
-$('#show-img').click(() => {
-  if (showImg) {
-    $('#img-col').hide();
-  } else {
-    $('#img-col').show();
-  }
-  showImg = !showImg;
-});
-
 
 
 $('#top-most h1').click(() => {
@@ -218,3 +215,62 @@ function CreatePDFfromHTML() {
     // $('#main-resume').hide();
   });
 }
+
+if(screen && screen.width<900){
+  $("#c2").hide();
+  $("#bottom-options").show();
+  $('#top-most h1').click(() => {
+    var s = prompt()
+    data['name'] = s;
+    setState()
+  });
+  $('#top-most p').click(() => {
+    var s = prompt();
+    data['attr'] = s;
+    setState();
+  });
+  $('#profile-section').click(() => {
+    var s = prompt();
+    data['profile'] = s;
+    setState();
+  });
+  $('#mobile').click(() => {
+    var s = prompt();
+    data['phone'] = s;
+    setState();
+  });
+  $('#email').click(() => {
+    var s = prompt();
+    data['email'] = s;
+    setState();
+  });
+  $('#linkedin').click(() => {
+    var s = prompt();
+    data['linkedin'] = s;
+    setState();
+  });
+  $('#house').click(() => {
+    var s = prompt();
+    data['address'] = s;
+    setState();
+  });
+  $('#skills-section').click(() => {
+    var s = prompt();
+    data['skills'] = s;
+    setState();
+  });
+  $('#education-section').click(() => {
+    var s = prompt();
+    data['education'] = s;
+    setState();
+  });
+  $('#experience-section').click(() => {
+    var s = prompt();
+    data['experience'] = s;
+    setState();
+  }); 
+}
+
+$(".final-btn").click(()=>{
+  $("#color-picker").click();
+})
