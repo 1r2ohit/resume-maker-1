@@ -83,6 +83,13 @@ $('button').click(()=>{
     $('#main-resume').printThis({
       importCSS: true,
       copyTagClasses: true,
+      beforePrint: ()=>{
+        $('#main-resume').css('font-size', '200%'); 
+        $('#main-resume h1').css("font-size","250%");
+      }, // function called before iframe is filled
+      afterPrint: ()=>{
+        $('#main-resume').css('font-size', '100%');
+      },
     });
 })
 })
