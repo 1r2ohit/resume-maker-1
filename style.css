@@ -1,19 +1,13 @@
 *{
     /* font-size: 1.1em !important; */
 }
-.my-bg-primary{
-    background-color: #1B4472 !important;
-}
 
-.my-text-primary{
-    color: #128CCD;
-}
 .top-jumbo{
     line-height: .2vh;
 }
 .top-jumbo .profile-img{
     border-radius: 50%;
-    border: solid 10px #128CCD;
+    border: solid 10px;
     overflow: hidden;
 }
 
@@ -23,7 +17,6 @@
 }
 
 .section-header{
-    color: #128CCD;
     font-size: x-large;
     font-weight: 700;
     text-transform: uppercase;
@@ -37,9 +30,6 @@
 .contact-list{
     font-size: large;
 }
-.contact-list i{
-    color: #128CCD;
-}
 
 .skills-list ul{
     columns: 2;
@@ -52,4 +42,16 @@ input{
 button{
     border-radius: 20px !important;
     background-color: #1B4472 !important;
+}
+
+.my-bg-primary {
+    background-color: #1B4472;
+}
+
+.my-text-primary {
+    color: #128CCD;
+}
+
+.my-border-primary {
+    border-color: #128CCD;
 }
