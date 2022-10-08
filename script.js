@@ -80,6 +80,9 @@ async function setState(){
 }
 
 $('button').click(()=>{
-    $("#main-resume").printThis();
+    $('#main-resume').printThis({
+      importCSS: true,
+      copyTagClasses: true,
+    });
 })
 })
