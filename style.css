@@ -9,16 +9,14 @@
     line-height: .2vh;
 }
 .top-jumbo .profile-img{
-    height: 150px;
-    width: 150px;
     border-radius: 50%;
     border: solid 10px #128CCD;
     overflow: hidden;
 }
 
 .top-jumbo .profile-img img{
-    width: 100%;
     border-radius: 50%;
+    width: 100%;
 }
 
 .section-header{
