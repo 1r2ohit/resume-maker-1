@@ -72,6 +72,9 @@ $(document).ready(async() => {
     data = await getResume(uid);
     setState();
     setInputs();
+    $('.edit-btn').html(
+      `<a class="btn my-button text-white mb-2" href="https://${window.location.host}/resume-maker/?uid=${uid}">Edit</a>`
+    );
   }
 
   $('#form-name input[type=text]').on('input', (e) => {
