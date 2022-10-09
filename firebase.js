@@ -31,6 +31,8 @@ async function saveResume(data) {
 }
 
 async function getResume(id){
+    $('header h1').html("Loading....")
     var res = await db.collection('resumes').doc(id).get();
+    $('header h1').html('Resume Maker');
     return res.data();
 }
