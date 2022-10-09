@@ -37,13 +37,15 @@ function setState() {
   for (let i = 0; i < data['skills'].length; i++) {
     $('.skills-list ul').append(`<li>${data['skills'][i]}</li>`);
   }
-  if (data['img'] == '') {
-    $('#user-img').attr(
-      'src',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa69_HGc_i3MXKCPZzCfAjBZC4bXJsn0rS0Ufe6H-ctZz5FbIVaPkd1jCPTpKwPruIT3Q&usqp=CAU'
-    );
-  } else {
-    $('#user-img').attr('src', data['img']);
+  if(data['showImg']){
+    if (data['img'] == '') {
+      $('#user-img').attr(
+        'src',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa69_HGc_i3MXKCPZzCfAjBZC4bXJsn0rS0Ufe6H-ctZz5FbIVaPkd1jCPTpKwPruIT3Q&usqp=CAU'
+      );
+    } else {
+      $('#user-img').attr('src', data['img']);
+    }
   }
 }
 
