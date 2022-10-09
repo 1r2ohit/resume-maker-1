@@ -46,6 +46,8 @@ function setState() {
     } else {
       $('#user-img').attr('src', data['img']);
     }
+  }else{
+    $('#img-col').hide();
   }
 }
 
