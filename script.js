@@ -190,6 +190,7 @@ function starBold(s) {
   if(s==undefined){
     return
   }
+  s = s.replace('\n','<br>')
   var symbols = {
     '*': ['<b>', '</b>'],
     _: ['<i>', '</i>'],
