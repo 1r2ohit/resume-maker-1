@@ -174,7 +174,7 @@ $(document).ready(async() => {
     var link =
       'https://' + window.location.host + '/resume-maker/resume.html?uid=' + id;
     $('.modal-body .msg').html(
-      `<b class='text-success'>Your resume is <a href="${link}">${link}</a></b>`
+      `<b class='text-success'>Your resume is <a href="${link}" target="_blank">${link}</a></b>`
     );
   });
 });
