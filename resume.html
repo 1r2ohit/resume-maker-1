@@ -147,10 +147,6 @@
     <script>
         $("#main-resume").hide()
         $(document).ready(async ()=>{
-            var url = window.location.href
-            var uid = url.split('=')[1];
-            data = await getResume(uid);
-            setState();
             $(".msg").hide()
             $("#main-resume").show()
         })

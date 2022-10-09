@@ -4,6 +4,7 @@ function setTheme(darkColour, lightColour) {
   $('.my-bg-primary').css('background-color', darkColour);
   $('.my-text-primary').css('color', lightColour);
   $('.my-border-primary').css('border-color', lightColour);
+  $('.my-button').css('background-color', darkColour);
 }
 var colourThemes = {
   default: ['#1B4472', '#128CCD'],
@@ -46,8 +47,29 @@ function setState() {
   }
 }
 
+function setInputs() {
+    $('#form-name input[type=text]').val(data['name']);
+    $('#form-attr input[type=text]').val(data['attr'])
+    $('#form-profile textarea').val(data['profile']);
+    $('#phone-input').val(data['phone'])
+    $('#email-input').val(data['email']);
+    $('#linkedin-input').val(data['linkedin'])
+    $('#address-input').val(data['address'])
+    $('#form-skills textarea').val(data['skills'].join(','))
+    $('#form-education textarea').val(data['education'])
+    $('#form-experience textarea').val(data['experience']);
+}
 
-$(document).ready(() => {
+$(document).ready(async() => {
+  var url = window.location.href
+  var uid = url.split('=')[1];
+  console.log(uid);
+  if(uid){
+    data = await getResume(uid);
+    setState();
+    setInputs();
+  }
+
   $('#form-name input[type=text]').on('input', (e) => {
     data['name'] = e.target.value;
     setState();
