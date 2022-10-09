@@ -20,10 +20,11 @@
 
 <body>
     <div class="container">
-        <div class="card p-4 mx-auto" style="width: 35rem;">
+        <div class="card p-3 mx-auto" style="width: 35rem;">
         <div class="row">
             <!--Resume Col Starts-->
             <div class="col" id="c1">
+                <div class="text-warning msg"><b>Loading...</b></div>
                 <div id="main-resume" style="width: 100%;">
                     <!--Top Jumbo Starts-->
                     <div class="top-jumbo" id="top-most">
@@ -144,11 +145,14 @@
         Website by Uday :)
     </div>
     <script>
+        $("#main-resume").hide()
         $(document).ready(async ()=>{
             var url = window.location.href
             var uid = url.split('=')[1];
-            data = await getResume('itsaniket61');
+            data = await getResume(uid);
             setState();
+            $(".msg").hide()
+            $("#main-resume").show()
         })
     </script>
 </footer>

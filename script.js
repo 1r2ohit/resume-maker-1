@@ -1,4 +1,23 @@
 var data = {skills:[],theme:"default","showImg":true,img:""};
+
+var colourThemes = {
+  default: ['#1B4472', '#128CCD'],
+  Orange: ['#d35400', '#e67e22'],
+  Yellow: ['#f39c12', '#f1c40f'],
+  Purple: ['#8e44ad', '#9b59b6'],
+  Blue: ['#2980b9', '#3498db'],
+  Green: ['#16a085', '#1abc9c'],
+  Red: ['#eb3b5a', '#fc5c65'],
+  Grey: ['#4b6584', '#778ca3'],
+};
+
+function setTheme(darkColour, lightColour) {
+  $('.my-bg-primary').css('background-color', darkColour);
+  $('.my-text-primary').css('color', lightColour);
+  $('.my-border-primary').css('border-color', lightColour);
+}
+  
+
 $(document).ready(() => {
   $('#form-name input[type=text]').on('input', (e) => {
     data['name'] = e.target.value;
@@ -73,21 +92,6 @@ $(document).ready(() => {
   });
 
   
-  function setTheme(darkColour, lightColour) {
-    $('.my-bg-primary').css('background-color', darkColour);
-    $('.my-text-primary').css('color', lightColour);
-    $('.my-border-primary').css('border-color', lightColour);
-  }
-  var colourThemes = {
-    default: ['#1B4472', '#128CCD'],
-    Orange: ['#d35400', '#e67e22'],
-    Yellow: ['#f39c12', '#f1c40f'],
-    Purple: ['#8e44ad', '#9b59b6'],
-    Blue: ['#2980b9', '#3498db'],
-    Green: ['#16a085', '#1abc9c'],
-    Red: ['#eb3b5a', '#fc5c65'],
-    Grey: ['#4b6584', '#778ca3'],
-  };
   $('#colors-list a').click((event) => {
     event.preventDefault();
     var colour = event.target.innerText;
@@ -125,6 +129,7 @@ $(document).ready(() => {
 
 //State
 function setState() {
+  setTheme(colourThemes[data['theme']][0], colourThemes[data['theme']][1]);
   $('#top-most h1').html(starBold(data['name']));
   $('title').html(data['name'] + ' (Resume Maker by Uday)');
   $('#top-most p').html(data['attr']);
