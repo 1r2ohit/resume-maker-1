@@ -1,4 +1,4 @@
-var data = {skills:[]};
+var data = {skills:[],theme:"default","showImg":true,img:""};
 $(document).ready(() => {
   $('#form-name input[type=text]').on('input', (e) => {
     data['name'] = e.target.value;
@@ -49,6 +49,7 @@ $(document).ready(() => {
 
       reader.onload = async function (event) {
         $('#user-img').attr('src', event.target.result);
+        data['img'] = event.target.result;
       };
 
       reader.readAsDataURL(input.files[0]);
@@ -68,6 +69,7 @@ $(document).ready(() => {
       $('#img-col').show();
     }
     showImg = !showImg;
+    data['showImg'] = showImg;
   });
 
   
@@ -77,6 +79,7 @@ $(document).ready(() => {
     $('.my-border-primary').css('border-color', lightColour);
   }
   var colourThemes = {
+    default: ['#1B4472', '#128CCD'],
     Orange: ['#d35400', '#e67e22'],
     Yellow: ['#f39c12', '#f1c40f'],
     Purple: ['#8e44ad', '#9b59b6'],
@@ -91,11 +94,36 @@ $(document).ready(() => {
     console.log(colourThemes[colour]);
     console.log();
     setTheme(colourThemes[colour][0], colourThemes[colour][1]);
+    data['theme'] = colour;
   });
 
 
+  $('#save-btn').click(async () => {
+    $('.modal-body .msg').html('');
+    $('.modal-body .msg').prepend(
+      `<b class='text-warning'>Loading...</b>`
+    );
+    var id = await saveResume(data);
+    if(id=='E'){
+      $('.modal-body .msg').html(
+        `<b class='text-danger'>Linkedin Id is mandatory</b>`
+      );
+      return 
+    }else if(id=='WP'){
+      $('.modal-body .msg').html(
+        `<b class='text-danger'>Wrong Password</b>`
+      );
+      return;
+    }
+    var link = "https://"+window.location.host+"/resume.html?uid="+id;
+    $('.modal-body .msg').html(
+      `<b class='text-success'>Your resume is <a href="${link}">${link}</a></b>`
+    );
+  });
 });
 
+
+//State
 function setState() {
   $('#top-most h1').html(starBold(data['name']));
   $('title').html(data['name'] + ' (Resume Maker by Uday)');
@@ -114,6 +142,15 @@ function setState() {
   for (let i = 0; i < data['skills'].length; i++) {
     $('.skills-list ul').append(`<li>${data['skills'][i]}</li>`);
   }
+  if(data["img"]==""){
+    $('#user-img').attr(
+      'src',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa69_HGc_i3MXKCPZzCfAjBZC4bXJsn0rS0Ufe6H-ctZz5FbIVaPkd1jCPTpKwPruIT3Q&usqp=CAU'
+    );
+  }else{
+    $('#user-img').attr('src', data['img']);
+  }
+  
 }
 
 function starBold(s) {
@@ -273,4 +310,8 @@ if(screen && screen.width<900){
 
 $(".final-btn").click(()=>{
   $("#color-picker").click();
+})
+
+$("#download-btn").click(()=>{
+  CreatePDFfromHTML();
 })
