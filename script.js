@@ -29,13 +29,14 @@ function setState() {
   $('#linkedin span').html(data['linkedin']);
   $('#house span').html(data['address']);
 
-  $('#profile-section .section-text').html(data['profile']);
+  $('#profile-section .section-text').html(starBold(data['profile']));
   $('#education-section .section-text').html(starBold(data['education']));
-  $('#experience-section .section-text').html(data['experience']);
+  $('#experience-section .section-text').html(starBold(data['experience']));
+  $('#projects-section .section-text').html(starBold(data['projects']));
 
   $('.skills-list ul').html('');
   for (let i = 0; i < data['skills'].length; i++) {
-    $('.skills-list ul').append(`<li>${data['skills'][i]}</li>`);
+    $('.skills-list ul').append(`<li>${starBold(data['skills'][i])}</li>`);
   }
   if(data['showImg']){
     if (data['img'] == '') {
@@ -62,6 +63,7 @@ function setInputs() {
     $('#form-skills textarea').val(data['skills'].join(','))
     $('#form-education textarea').val(data['education'])
     $('#form-experience textarea').val(data['experience']);
+    $('#form-projects textarea').val(data['projects']);
 }
 
 $(document).ready(async() => {
@@ -117,6 +119,10 @@ $(document).ready(async() => {
   });
   $('#form-experience textarea').on('input', (e) => {
     data['experience'] = e.target.value;
+    setState();
+  });
+  $('#form-projects textarea').on('input', (e) => {
+    data['projects'] = e.target.value;
     setState();
   });
   $('#form-img input[type=file]').on('change', (e) => {
@@ -238,6 +244,9 @@ $('#education-section').click(() => {
 $('#experience-section').click(() => {
   $('#form-experience textarea').focus();
 });
+$('#projects-section').click(() => {
+  $('#form-projects textarea').focus();
+});
 $('#img-col').click(() => {
   $('#form-img input[type=file]').click();
 });
@@ -331,6 +340,11 @@ if(screen && screen.width<900){
   $('#experience-section').click(() => {
     var s = prompt();
     data['experience'] = s;
+    setState();
+  }); 
+  $('#projects-section').click(() => {
+    var s = prompt();
+    data['projects'] = s;
     setState();
   }); 
 }
