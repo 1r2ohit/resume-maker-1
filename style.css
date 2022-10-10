@@ -76,3 +76,24 @@ input{
     margin-top: 35%;
     font-size: xx-large;
 }
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #main-resume,
+    #main-resume * {
+        visibility: visible;
+    }
+
+    #main-resume {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 11cm;
+        width: 8.5cm;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
