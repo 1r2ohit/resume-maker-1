@@ -253,6 +253,10 @@ $('#img-col').click(() => {
 });
 
 function CreatePDFfromHTML() {
+  $(".card").css('width','40rem');
+  setTimeout(function() {
+    $('.card').css('width', '100%');   
+  },2000)
   var HTML_Width = $('#main-resume').width();
   var HTML_Height = $('#main-resume').height();
   var top_left_margin = 15;
