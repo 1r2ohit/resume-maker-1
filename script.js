@@ -75,7 +75,7 @@ $(document).ready(async() => {
     setState();
     setInputs();
     $('.edit-btn').html(
-      `<a class="btn my-button text-white mb-2" href="https://${window.location.host}/resume-maker/?uid=${uid}">Edit</a>`
+      `<a class="btn my-button text-white mb-2" href="https://${window.location.host}/resume-maker-1/?uid=${uid}">Edit</a>`
     );
   }
 
