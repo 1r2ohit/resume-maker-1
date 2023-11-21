@@ -79,53 +79,53 @@ $(document).ready(async() => {
     );
   }
 
-  $('#form-name input[type=text]').on('change', (e) => {
+  $('#form-name input[type=text]').on("input", (e) => {
     data['name'] = e.target.value;
     setState();
   });
-  $('#form-attr input[type=text]').on('change', (e) => {
+  $('#form-attr input[type=text]').on("input", (e) => {
     data['attr'] = e.target.value;
     setState();
   });
-  $('#form-profile textarea').on('change', (e) => {
+  $('#form-profile textarea').on("input", (e) => {
     data['profile'] = e.target.value;
     setState();
   });
-  $('#phone-input').on('change', (e) => {
+  $('#phone-input').on("input", (e) => {
     data['phone'] = e.target.value;
     setState();
   });
-  $('#email-input').on('change', (e) => {
+  $('#email-input').on('input', (e) => {
     data['email'] = e.target.value;
     setState();
   });
-  $('#linkedin-input').on('change', (e) => {
+  $('#linkedin-input').on('input', (e) => {
     data['linkedin'] = e.target.value;
     setState();
   });
-  $('#address-input').on('change', (e) => {
+  $('#address-input').on('input', (e) => {
     data['address'] = e.target.value;
     setState();
   });
-  $('#form-skills textarea').on('change', (e) => {
+  $('#form-skills textarea').on('input', (e) => {
     var skills = e.target.value;
     console.log(data);
     data['skills'] = skills.split(',');
     setState();
   });
-  $('#form-education textarea').on('change', (e) => {
+  $('#form-education textarea').on('input', (e) => {
     data['education'] = e.target.value;
     setState();
   });
-  $('#form-experience textarea').on('change', (e) => {
+  $('#form-experience textarea').on('input', (e) => {
     data['experience'] = e.target.value;
     setState();
   });
-  $('#form-projects textarea').on('change', (e) => {
+  $('#form-projects textarea').on('input', (e) => {
     data['projects'] = e.target.value;
     setState();
   });
-  $('#form-img input[type=file]').on('change', (e) => {
+  $('#form-img input[type=file]').on('input', (e) => {
     var input = e.target;
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -178,7 +178,7 @@ $(document).ready(async() => {
       return;
     }
     var link =
-      'https://' + window.location.host + '/resume-maker/resume.html?uid=' + id;
+      'https://' + window.location.host + '/resume-maker-1/resume.html?uid=' + id;
     $('.modal-body .msg').html(
       `<b class='text-success'>Your resume is <a href="${link}" target="_blank">${link}</a></b>`
     );
