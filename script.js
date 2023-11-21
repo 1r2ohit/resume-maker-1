@@ -21,7 +21,7 @@ var colourThemes = {
 function setState() {
   setTheme(colourThemes[data['theme']][0], colourThemes[data['theme']][1]);
   $('#top-most h1').html(starBold(data['name']));
-  $('title').html(data['name'] + ' (Resume Maker by Uday)');
+  $('title').html(data['name'] + ' (Resume Maker by Rohit)');
   $('#top-most p').html(data['attr']);
 
   $('#mobile span').html(data['phone']);
@@ -289,7 +289,7 @@ function CreatePDFfromHTML() {
         canvas_image_height
       );
     }
-    pdf.save(data['name']+'(Resume Maker by Uday).pdf');
+    pdf.save(data['name']+'(Resume Maker by Rohit).pdf');
     // $('#main-resume').hide();
   });
 }
