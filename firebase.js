@@ -1,11 +1,13 @@
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyCOFBHcb219f__ZUqh-f7RR398fh0uOmws',
-  authDomain: 'resume-3e696.firebaseapp.com',
-  projectId: 'resume-3e696',
-  storageBucket: 'resume-3e696.appspot.com',
-  messagingSenderId: '42069345364',
-  appId: '1:42069345364:web:1bee356ada4bdc3f2a59c1',
-};
+    apiKey: "AIzaSyCGa6UpExfGMucPjfjHzxJFEB8O5cLOJOo",
+    authDomain: "resume-maker-fdd1f.firebaseapp.com",
+    projectId: "resume-maker-fdd1f",
+    storageBucket: "resume-maker-fdd1f.appspot.com",
+    messagingSenderId: "405170515548",
+    appId: "1:405170515548:web:29a3bb1237bc1969e60099",
+    measurementId: "G-1MEZ4VTGLF"
+  };
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
